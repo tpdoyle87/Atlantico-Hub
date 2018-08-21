@@ -1,0 +1,2 @@
+class MarginCallsController < ApplicationController
+end
