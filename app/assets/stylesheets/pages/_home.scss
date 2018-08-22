@@ -69,13 +69,28 @@
     opacity: 0.6;
     margin-bottom: 30px;
     text-align: left;
+
+   .icon-container {
+    display: inline-block;
+    margin-top: 20px;
+    vertical-align: top;
+    width: 250px;
+    }
+
+    .icon-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+
+    }
   }
 }
 
 .statement {
   color: white;
   // text-align: center;
-  height: 50vh;
+  height: 70vh;
   padding-left: 30px;
   background-color: #12CCCC;
   background-size: cover !important;
@@ -105,7 +120,7 @@
 .contact {
   color: #606060;
   // text-align: center;
-  height: 50vh;
+  height: 70vh;
   padding-left: 30px;
   background-color: white;
   background-size: cover !important;
