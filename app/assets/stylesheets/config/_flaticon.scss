@@ -1,0 +1,67 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/08/2018 21:30
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("../../fonts/Flaticon.eot");
+  src: url("../../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../../fonts/Flaticon.woff") format("woff"),
+       url("../../fonts/Flaticon.ttf") format("truetype"),
+       url("../../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-fluctuation:before { content: "\f100"; }
+.flaticon-notes:before { content: "\f101"; }
+.flaticon-receipt:before { content: "\f102"; }
+.flaticon-rich:before { content: "\f103"; }
+.flaticon-invoice:before { content: "\f104"; }
+.flaticon-money-bag:before { content: "\f105"; }
+.flaticon-money:before { content: "\f106"; }
+.flaticon-gold-ingot:before { content: "\f107"; }
+.flaticon-growth:before { content: "\f108"; }
+.flaticon-euro:before { content: "\f109"; }
+.flaticon-bank:before { content: "\f10a"; }
+.flaticon-check:before { content: "\f10b"; }
+.flaticon-safebox:before { content: "\f10c"; }
+.flaticon-profits:before { content: "\f10d"; }
+
+    $font-Flaticon-fluctuation: "\f100";
+    $font-Flaticon-notes: "\f101";
+    $font-Flaticon-receipt: "\f102";
+    $font-Flaticon-rich: "\f103";
+    $font-Flaticon-invoice: "\f104";
+    $font-Flaticon-money-bag: "\f105";
+    $font-Flaticon-money: "\f106";
+    $font-Flaticon-gold-ingot: "\f107";
+    $font-Flaticon-growth: "\f108";
+    $font-Flaticon-euro: "\f109";
+    $font-Flaticon-bank: "\f10a";
+    $font-Flaticon-check: "\f10b";
+    $font-Flaticon-safebox: "\f10c";
+    $font-Flaticon-profits: "\f10d";
