@@ -6,3 +6,6 @@ class Asset < ApplicationRecord
    validates :deny, :guarantee, inclusion: { in: [true, false] }
 
 end
+
+Asset.new(name: :apple, amount: '10000', ranking: '3',
+          deny: false, guarantee: false)
