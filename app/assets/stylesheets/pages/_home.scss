@@ -15,6 +15,7 @@
     font-weight: bold;
     text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
     text-align: left;
+    letter-spacing: 5px;
   }
 
   p {
@@ -28,6 +29,7 @@
 }
 
 
+
 .banner-content {
   .btn {
   margin-top: 30px;
@@ -36,6 +38,66 @@
 
 
 .about {
+  color: #606060;
+  // text-align: center;
+  height: 70vh;
+  padding-left: 30px;
+  background-color: white;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+   h2 {
+    font-size: 32px;
+    color: #606060;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    text-align: left;
+
+  }
+
+   p {
+    font-size: 24px;
+    color: #424242;
+    font-weight: lighter;
+    opacity: 0.6;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+}
+
+.statement {
+  color: white;
+  // text-align: center;
+  height: 50vh;
+  padding-left: 30px;
+  background-color: #12CCCC;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+   h2 {
+    font-size: 32px;
+    color: #606060;
+    font-weight: bold;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    text-align: left;
+  }
+
+   p {
+    font-size: 24px;
+    color: #424242;
+    font-weight: lighter;
+    opacity: 0.6;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+}
+
+
+.contact {
   color: #606060;
   // text-align: center;
   height: 50vh;
@@ -64,29 +126,3 @@
   }
 }
 
-.footer {
-  background: #F4F4F4;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-}
-.footer-links {
-  display: flex;
-  align-items: center;
-}
-.footer-links a {
-  color: black;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
-}
-.footer-links a:hover {
-  opacity: 1;
-}
-.footer .fa-heart {
-  color: #D23333;
-}
