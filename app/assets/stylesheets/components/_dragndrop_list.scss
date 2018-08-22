@@ -1,5 +1,11 @@
-body {
-  margin: 10px;
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.category-container {
+  width: 700px;
 }
 
 .glyphicon-move {
@@ -12,7 +18,29 @@ body {
   cursor: -webkit-grabbing;
 }
 
-.number{
+.number {
   border-radius: 50%;
   background-color: white;
+}
+
+.my-handle {
+  height: 30px;
+  margin-right: 40px;
+  color: #12cccc;
+}
+
+.icons {
+  height: 30px;
+  fill: #12cccc;
+  position: absolute;
+  left: 50%;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.span-text {
+  font-size: 27px;
 }
