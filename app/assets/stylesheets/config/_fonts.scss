@@ -1,16 +1,17 @@
 // Import Google fonts
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700");
 
+
 // Define fonts for body and headers
 $body-font: "Source Sans Pro", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
+$headers-font: "Gotham Bold", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "Gotham Bold";
+  src: url('Gotham Bold/Gotham-Bold.eot');
+  src: url('Gotham Bold/Gotham-Bold.eot?#iefix') format('embedded-opentype');
+  src: url('Gotham Bold/gotham-bold.woff') format('woff');
+  src: url('Gotham Bold/Gotham Bold.ttf') format('truetype');
+}
+$my-font: "Gotham Bold";
