@@ -1,0 +1,18 @@
+<% assets = %w(Cash Letter Bonds Stocks) %>
+
+<div class="row">
+  <div class="col-sm-6 col-offset-sm-3">
+    <div id="items" class="list-group">
+      <% assets.each do |asset| %>
+        <div class="list-group-item">
+          <span class="my-handle" aria-hidden="true">☰  </span>
+          <%= asset %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
