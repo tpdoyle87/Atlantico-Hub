@@ -1,18 +1,108 @@
-<% assets = %w(Cash Letter Bonds Stocks) %>
+<% colateral = {cash: 50000, federal_bonds: 7000000, letter_of_credit: 1000000, private_bonds: 0, stocks: 20000000, foreign_currency: 0, investment_funds: 100000, rural_trust_notes: 0, gold: 0 } %>
 
-<div class="row">
-  <div class="col-sm-6 col-offset-sm-3">
-    <div id="items" class="list-group">
-      <% assets.each do |asset| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="items" class="list-group">
         <div class="list-group-item">
-          <span class="my-handle" aria-hidden="true">☰  </span>
-          <%= asset %>
+          <div class="flex-group text-left">
+          <span class="my-handle" aria-hidden="true">☰</span>
+          <span class="span-text">Cash</span>
+          </div>
+           <%= image_tag "money.svg", class:"icons text-center" %>
+          <div class="amount">
+            <span class="span-text">R$5,000.00</span>
+          </div>
         </div>
-      <% end %>
+
+        <div class="list-group-item">
+          <div class="flex-group text-left">
+          <span class="my-handle" aria-hidden="true">☰</span>
+          <span class="span-text">Federal Bonds</span>
+          </div>
+           <%= image_tag "safebox.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$7,000,000.00</span>
+          </div>
+        </div>
+
+        <div class="list-group-item">
+          <div class="flex-group text-left">
+          <span class="my-handle" aria-hidden="true">☰</span>
+          <span class="span-text">Letters of Credit</span>
+          </div>
+           <%= image_tag "check.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$1,000,000.00</span>
+          </div>
+        </div>
+
+        <div class="list-group-item">
+          <div class="flex-group text-left">
+          <span class="my-handle" aria-hidden="true">☰</span>
+          <span class="span-text">Stocks</span>
+          </div>
+           <%= image_tag "profits.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$20,000,000.00</span>
+          </div>
+        </div>
+
+        <div class="list-group-item">
+          <div class="flex-group text-left">
+          <span class="my-handle" aria-hidden="true">☰</span>
+          <span class="span-text">Private Bonds</span>
+          </div>
+           <%= image_tag "invoice.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$0,00</span>
+          </div>
+        </div>
+
+        <div class="list-group-item">
+          <div class="flex-group text-left">
+          <span class="my-handle" aria-hidden="true">☰</span>
+          <span class="span-text">Foreign Currency</span>
+          </div>
+           <%= image_tag "euro.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$0.00</span>
+          </div>
+        </div>
+
+        <div class="list-group-item">
+          <div class="flex-group text-left">
+          <span class="my-handle" aria-hidden="true">☰</span>
+          <span class="span-text">Investment Funds</span>
+          </div>
+           <%= image_tag "fluctuation.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$100,000.00</span>
+          </div>
+        </div>
+
+        <div class="list-group-item">
+          <div class="flex-group text-left">
+          <span class="my-handle" aria-hidden="true">☰</span>
+          <span class="span-text">Rural Trust Notes</span>
+          </div>
+           <%= image_tag "growth.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$0.00</span>
+          </div>
+        </div>
+
+        <div class="list-group-item">
+          <div class="flex-group text-left">
+          <span class="my-handle" aria-hidden="true">☰</span>
+          <span class="span-text">Gold</span>
+          </div>
+           <%= image_tag "gold-ingot.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$0.00</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
