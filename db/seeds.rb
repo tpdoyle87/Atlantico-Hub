@@ -26,11 +26,22 @@ puts "Asset classes created"
 
 5.times do
   stocks = Category.find_by(name: 'Stocks')
-  asset = Asset.new(name: "#{STOCKS.shuffle.pop}", amount: "#{rand(5000..15000)}",
-                    ranking: "#{ASSET_RANKING.shuffle.pop}", deny: false, guarantee: false)
+  asset = Asset.new(
+    name: "#{STOCKS.shuffle.pop}",
+    amount: "#{rand(5000..15000)}",
+    ranking: "#{ASSET_RANKING.shuffle.pop}",
+    deny: false, guarantee: false)
   asset.user = user
   asset.category = stocks
   asset.save
+end
+
+CATEGORIES.each do |category|
+  next if category == "Stocks"
+  asset = Asset.new(name: category,
+  amount: "#{rand(100_000..400_000)}",
+  ranking: "#{}"
+  )
 end
 
 
