@@ -44,7 +44,7 @@
 .about {
   color: black;
   // text-align: center;
-  height: 70vh;
+  height: 100vh;
   padding-left: 30px;
   background-color: white;
   background-size: cover !important;
@@ -68,6 +68,21 @@
     opacity: 0.6;
     margin-bottom: 30px;
     text-align: left;
+
+   .icon-container {
+    display: inline-block;
+    margin-top: 20px;
+    vertical-align: top;
+    width: 250px;
+    }
+
+    .icon-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+
+    }
   }
 }
 
@@ -104,7 +119,7 @@
 .contact {
   color: black;
   // text-align: center;
-  height: 50vh;
+  height: 70vh;
   padding-left: 30px;
   background-color: white;
   background-size: cover !important;
@@ -128,34 +143,4 @@
     margin-bottom: 30px;
     text-align: left;
   }
-}
-
-.footer {
-  background: #424242;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-}
-.footer-links {
-  display: flex;
-  align-items: center;
-
-   a {
-    color: black;
-    opacity: 0.15;
-    text-decoration: none;
-    font-size: 24px;
-    padding: 0px 10px;
-  }
-
-   a:hover {
-    opacity: 1;
-  }
-}
-
-.footer .fa-heart {
-  color: #12CCCC;
 }
