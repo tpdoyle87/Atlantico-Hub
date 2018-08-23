@@ -7,4 +7,21 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :timeoutable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def margin_call
+    margin_calls.first.value
+  end
+
+  def asset_value(asset)
+    assets.where(name: "#{asset}").first.amount
+  end
+
+  def grab_stocks_value
+    stocks = assets.where(category_id: 5)
+    total = 0
+    stocks.each do |stock|
+      total += stock.amount
+    end
+    total
+  end
 end

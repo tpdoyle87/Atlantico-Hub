@@ -11,7 +11,7 @@
           </div>
            <%= image_tag "money.svg", class:"icons text-center" %>
           <div class="amount">
-            <span class="span-text">R$5,000.00</span>
+            <span class="span-text">R$<%= current_user.asset_value("Cash").to_i %></span>
           </div>
         </div>
 
@@ -22,7 +22,7 @@
           </div>
            <%= image_tag "safebox.svg", class:"icons" %>
           <div class="amount">
-            <span class="span-text">R$7,000,000.00</span>
+            <span class="span-text">R$<%= current_user.asset_value("Federal Bonds").to_i %></span>
           </div>
         </div>
 
@@ -33,7 +33,7 @@
           </div>
            <%= image_tag "check.svg", class:"icons" %>
           <div class="amount">
-            <span class="span-text">R$1,000,000.00</span>
+            <span class="span-text">R$<%= current_user.asset_value("Letters of Credit").to_i %></span>
           </div>
         </div>
 
@@ -44,7 +44,7 @@
           </div>
            <%= image_tag "profits.svg", class:"icons" %>
           <div class="amount">
-            <span class="span-text">R$20,000,000.00</span>
+            <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
           </div>
         </div>
 
@@ -55,7 +55,7 @@
           </div>
            <%= image_tag "invoice.svg", class:"icons" %>
           <div class="amount">
-            <span class="span-text">R$0,00</span>
+            <span class="span-text">R$<%= current_user.asset_value("Private Bonds").to_i %></span>
           </div>
         </div>
 
@@ -66,7 +66,7 @@
           </div>
            <%= image_tag "euro.svg", class:"icons" %>
           <div class="amount">
-            <span class="span-text">R$0.00</span>
+            <span class="span-text">R$<%= current_user.asset_value("Foreign Currency").to_i %></span>
           </div>
         </div>
 
@@ -77,7 +77,7 @@
           </div>
            <%= image_tag "fluctuation.svg", class:"icons" %>
           <div class="amount">
-            <span class="span-text">R$100,000.00</span>
+            <span class="span-text">R$<%= current_user.asset_value("Investment Funds").to_i %></span>
           </div>
         </div>
 
@@ -88,7 +88,7 @@
           </div>
            <%= image_tag "growth.svg", class:"icons" %>
           <div class="amount">
-            <span class="span-text">R$0.00</span>
+            <span class="span-text">R$<%= current_user.asset_value("Rural Trust Notes").to_i %></span>
           </div>
         </div>
 
@@ -99,7 +99,7 @@
           </div>
            <%= image_tag "gold-ingot.svg", class:"icons" %>
           <div class="amount">
-            <span class="span-text">R$0.00</span>
+            <span class="span-text">R$<%= current_user.asset_value("Gold").to_i %></span>
           </div>
         </div>
       </div>
