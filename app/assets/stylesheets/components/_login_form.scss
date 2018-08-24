@@ -6,13 +6,17 @@
   box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
 
-h2 {
+#sign_in_h2 {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
 }
 
-.btn {
+
+.zebtn{
+  background-color: #12CCCC !important;
+  width: 100%;
   margin-bottom: 20px;
+  color: white;
 }
