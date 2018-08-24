@@ -1,21 +1,21 @@
 <div class="container">
+  <div class="margin-box">
+     <% title = 'Margin Call' %>
+     <h2 class="text-center"><%= title.upcase! %></h2>
+   </div>
   <div class="row">
-    <div class="col-md-12">
-      <div class="margin-box">
-        <div>
-          <ul id="margin" class="text-left">
-            <li>Margin Requirement</li>
-            <li>Guarantees Deposited</li>
-            <li><h4>Margin Call</h4></li>
-          </ul>
-        </div>
-        <div>
-          <ul id="margin-amount" class="text-right">
-            <li><%= current_user.margin_call %></li>
-            <li>R$7,400</li>
-            <li><h4>R$2,600</h4></li>
-          </ul>
-        </div>
+    <div class ="col-md-4 col-md-offset-4 money-info">
+      <div class="margin-call-box">
+        <span><p>Margin Requirement</p></span>
+        <span><p><%= current_user.margin_call %></p></span>
+      </div>
+      <div class="margin-call-box">
+        <span><p>Guarantees Deposited</p></span>
+        <span><p>R$7,400</p></span>
+      </div>
+      <div class="margin-call-box">
+        <span><h2>Margin Call</h2></span>
+        <span><h2>R$2,600</h2></span>
       </div>
     </div>
   </div>
@@ -24,8 +24,8 @@
 <%= render "/shared/dragndrop_list" %>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-2 col-md-offset-5">
-      <%= link_to 'Save', user_priorities_path(current_user), class: 'btn btn-primary' %>
+    <div class="col-md-8 col-md-offset-2 text-center">
+      <%= link_to 'Save', user_priorities_path(current_user), class: 'btn btn-primary btn-block' %>
     </div>
   </div>
 </div>
