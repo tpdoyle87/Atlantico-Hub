@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" id="priority-container">
   <div class="row">
     <div class="col-md-12">
-      <div class="margin-box">
+      <!-- <div class="margin-box">
         <div>
           <ul id="margin" class="text-left">
             <li>Margin Requirement</li>
@@ -16,8 +16,54 @@
             <li><h4>R$2,600</h4></li>
           </ul>
         </div>
-      </div>
+      </div> -->
+
+      <h2>
+        YOUR PREFERENCES
+      </h2>
+      <h4>
+        This is how we are going to arrange your assets to cover the margin call:
+      </h4>
+
+      <div class="list-group-item" data-id="1">
+          <div class="flex-group text-left">
+            <span aria-hidden="true">  </span>
+            <span class="span-text">Cash</span>
+          </div>
+          <%= image_tag "money.svg", class:"icons text-center" %>
+          <div class="amount">
+            <span class="span-text">R$<%= current_user.asset_value("Cash").to_i %></span>
+          </div>
+        </div>
+          <div class="list-group-item" data-id="9">
+          <div class="flex-group text-left">
+            <span aria-hidden="true">  </span>
+            <span class="span-text">Gold</span>
+          </div>
+          <%= image_tag "gold-ingot.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$<%= current_user.asset_value("Gold").to_i %></span>
+          </div>
+        </div>
+
+        <div class="list-group-item"  data-id="5">
+          <div class="flex-group text-left">
+            <span aria-hidden="true">  </span>
+            <span class="span-text">Private Bonds</span>
+          </div>
+          <%= image_tag "invoice.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text">R$<%= current_user.asset_value("Private Bonds").to_i %></span>
+          </div>
+        </div>
     </div>
   </div>
 </div>
-<%= render "/shared/dragndrop_list" %>
+            <div class="container" id="priority-cont2">
+              <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                      <button id="sweet-alert-demo" class="btn btn-primary">Confirm</button>
+                </div>
+              </div>
+            </div>
+
