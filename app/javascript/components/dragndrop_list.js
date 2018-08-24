@@ -2,6 +2,7 @@ function dragnDrop(){
   const el = document.getElementById('items');
   const sortable = Sortable.create(el, {
   group: "localStorage-example",
+  dataIdAttr: 'data-id',
   store: {
     /**
      * Get the order of elements. Called once during initialization.
