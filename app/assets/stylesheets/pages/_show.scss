@@ -1,22 +1,79 @@
 .margin-box {
   display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  // padding: 70px, 50px, 50px 0px;
+  border-bottom: 1px solid #12CCCC;
+  // margin-bottom: 15px;
+
+   h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #004056;
+    font-weight: bold;
+    // text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    letter-spacing: 5px;
+  }
+}
+
+.deny-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  // padding: 70px, 50px, 50px 0px;
+  border-bottom: 1px solid #12CCCC;
+  // margin-bottom: 15px;
+
+   h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #004056;
+    font-weight: bold;
+    // text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    letter-spacing: 5px;
+  }
+}
+
+.margin-call-box {
+  display: flex;
   justify-content: space-between;
-  margin-top: 70px;
-  padding: 70px, 50px, 0px 50px;
+
+ h3 {
+    font-size: 20px;
+    // margin-bottom: 15px;
+    color: #004056;
+    font-weight: bold;
+    // text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    letter-spacing: 5px;
+  }
 }
 
-ul {
-  list-style: none;
-  // border-bottom: 1px solid rgba(80, 80, 80,.7)
+.money-info {
+  padding: 20px 0 20px 0;
+  align-items: center;
+
+  p {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #004056;
+  // font-weight: bold;
+  // text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+  }
 }
 
-#margin-amount {
-  padding-right: 300px;
-}
+// ul {
+//   list-style: none;
+//   // border-bottom: 1px solid rgba(80, 80, 80,.7)
+// }
 
-#margin {
-  padding-left: 300px;
-}
+// #margin-amount {
+//   padding-right: 0;
+// }
+
+// #margin {
+//   padding-left: 0;
+// }
 
 .assets-box {
   display: grid;
