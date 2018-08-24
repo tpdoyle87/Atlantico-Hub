@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :margin_calls
   has_many :priorities
 
-  devise :database_authenticatable, :timeoutable, :registerable,
+  devise :database_authenticatable, :timeoutable,
          :recoverable, :rememberable, :validatable
 
   def margin_call
