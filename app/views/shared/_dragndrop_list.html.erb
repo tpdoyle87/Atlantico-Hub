@@ -10,7 +10,7 @@
             <span class="my-handle" aria-hidden="true">☰</span>
             <span class="span-text"><%= cat.name %></span>
             </div>
-             <%= image_tag "money.svg", class:"icons text-center" %>
+             <%= image_tag "#{cat.name}.svg", class:"icons text-center" %>
             <div class="amount">
               <% if cat.name == "Stocks" %>
                 <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
