@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div id="items" class="list-group">
+      <div id="items" class="list-group connectedSortable">
 
         <% catagories = Category.order(:position) %>
         <% catagories.each_with_index do |cat| %>
@@ -25,7 +25,7 @@
       <% title = 'Deny List' %>
      <h2 class="text-center"><%= title.upcase! %></h2>
     </div>
-    <div class="row">
+    <div  id="items-deny" class="row connectedSortable">
     <div class="col-md-8 col-md-offset-2 money-info">
       <div class="layer tile" data-force="20">
         <div class="tile__list">

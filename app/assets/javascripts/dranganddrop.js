@@ -9,4 +9,11 @@ window.addEventListener("load", () => {
       });
     }
   });
+  $( function() {
+    $( "#items, #items-deny" ).sortable({
+      connectWith: ".connectedSortable"
+    }).disableSelection();
+  } );
+
 })
+
