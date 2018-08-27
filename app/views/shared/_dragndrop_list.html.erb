@@ -10,7 +10,7 @@
             <span class="my-handle" aria-hidden="true">☰</span>
             <span class="span-text"><%= cat.name %></span>
             </div>
-             <%= image_tag "#{cat.name}.svg", class:"icons text-center" %>
+            <%= render "./svg/#{cat.name}" %>
             <div class="amount">
               <% if cat.name == "Stocks" %>
                 <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
@@ -21,6 +21,8 @@
           </div>
         <% end %>
       </div>
+
+
     <div class="deny-box">
       <% title = 'Deny List' %>
      <h2 class="text-center"><%= title.upcase! %></h2>
