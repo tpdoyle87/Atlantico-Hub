@@ -3,107 +3,24 @@
     <div class="col-md-8 col-md-offset-2">
       <div id="items" class="list-group">
 
-        <div class="list-group-item" data-id="1">
-          <div class="flex-group text-left">
+        <% catagories = Category.all %>
+        <% catagories.each_with_index do |cat| %>
+          <div class="list-group-item" data-id="1">
+            <div class="flex-group text-left">
             <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text">Cash</span>
+            <span class="span-text"><%= cat.name %></span>
+            </div>
+             <%= image_tag "money.svg", class:"icons text-center" %>
+            <div class="amount">
+              <% if cat.name == "Stocks" %>
+                <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
+              <% else %>
+                <span class="span-text">R$<%= current_user.asset_value(cat.name).to_i %></span>
+              <% end %>
+            </div>
           </div>
-          <%= image_tag "money.svg", class:"icons text-center" %>
-          <div class="amount">
-            <span class="span-text">R$<%= current_user.asset_value("Cash").to_i %></span>
-          </div>
-        </div>
-
-        <div class="list-group-item" data-id="2">
-          <div class="flex-group text-left">
-            <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text">Federal Bonds</span>
-          </div>
-          <%= image_tag "safebox.svg", class:"icons" %>
-          <div class="amount">
-            <span class="span-text">R$<%= current_user.asset_value("Federal Bonds").to_i %></span>
-          </div>
-        </div>
-
-        <div class="list-group-item"  data-id="3">
-          <div class="flex-group text-left">
-            <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text">Letters of Credit</span>
-          </div>
-          <%= image_tag "check.svg", class:"icons" %>
-          <div class="amount">
-            <span class="span-text">R$<%= current_user.asset_value("Letters of Credit").to_i %></span>
-          </div>
-        </div>
-
-        <div class="list-group-item"  data-id="4">
-          <div class="flex-group text-left">
-            <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text">Stocks</span>
-          </div>
-          <%= image_tag "profits.svg", class:"icons" %>
-          <div class="amount">
-            <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
-          </div>
-        </div>
-
-        <div class="list-group-item"  data-id="5">
-          <div class="flex-group text-left">
-            <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text">Private Bonds</span>
-          </div>
-          <%= image_tag "invoice.svg", class:"icons" %>
-          <div class="amount">
-            <span class="span-text">R$<%= current_user.asset_value("Private Bonds").to_i %></span>
-          </div>
-        </div>
-
-        <div class="list-group-item" data-id="6">
-          <div class="flex-group text-left">
-            <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text">Foreign Currency</span>
-          </div>
-          <%= image_tag "euro.svg", class:"icons" %>
-          <div class="amount">
-            <span class="span-text">R$<%= current_user.asset_value("Foreign Currency").to_i %></span>
-          </div>
-        </div>
-
-        <div class="list-group-item" data-id="7">
-          <div class="flex-group text-left">
-            <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text">Investment Funds</span>
-          </div>
-          <%= image_tag "fluctuation.svg", class:"icons" %>
-          <div class="amount">
-            <span class="span-text">R$<%= current_user.asset_value("Investment Funds").to_i %></span>
-          </div>
-        </div>
-
-        <div class="list-group-item" data-id="8">
-          <div class="flex-group text-left">
-            <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text">Rural Trust Notes</span>
-          </div>
-          <%= image_tag "growth.svg", class:"icons" %>
-          <div class="amount">
-            <span class="span-text">R$<%= current_user.asset_value("Rural Trust Notes").to_i %></span>
-          </div>
-        </div>
-
-        <div class="list-group-item" data-id="9">
-          <div class="flex-group text-left">
-            <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text">Gold</span>
-          </div>
-          <%= image_tag "gold-ingot.svg", class:"icons" %>
-          <div class="amount">
-            <span class="span-text">R$<%= current_user.asset_value("Gold").to_i %></span>
-          </div>
-        </div>
+        <% end %>
       </div>
-    </div>
-  </div>
     <div class="deny-box">
       <% title = 'Deny List' %>
      <h2 class="text-center"><%= title.upcase! %></h2>

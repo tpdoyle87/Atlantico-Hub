@@ -1,6 +1,8 @@
 
 window.addEventListener("load", () => {
-  console.log('here')
-  $('#items').sortable();
-  console.log('here')
+  $('#items').sortable({
+    update: function(e, ui) {
+      console.log($(this).sortable('serialize'))
+    }
+  });
 })
