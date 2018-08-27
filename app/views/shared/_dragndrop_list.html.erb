@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div id="items" class="list-group connectedSortable">
-        <% catagories = Category.where(deny: false).order(:position) %>
+        <% catagories = Category.order(:position) %>
         <% catagories.each_with_index do |cat| %>
           <div class="list-group-item" data-id="1" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
             <div class="flex-group text-left">
