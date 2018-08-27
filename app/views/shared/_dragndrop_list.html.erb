@@ -3,9 +3,9 @@
     <div class="col-md-8 col-md-offset-2">
       <div id="items" class="list-group">
 
-        <% catagories = Category.all %>
+        <% catagories = Category.order(:position) %>
         <% catagories.each_with_index do |cat| %>
-          <div class="list-group-item" data-id="1">
+          <div class="list-group-item" data-id="1" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
             <div class="flex-group text-left">
             <span class="my-handle" aria-hidden="true">☰</span>
             <span class="span-text"><%= cat.name %></span>
@@ -38,4 +38,6 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
