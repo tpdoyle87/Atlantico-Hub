@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div id="items" class="list-group connectedSortable">
-
         <% catagories = Category.where(deny: false).order(:position) %>
         <% catagories.each_with_index do |cat| %>
           <div class="list-group-item" data-id="1" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
@@ -15,7 +14,8 @@
               <% if cat.name == "Stocks" %>
                 <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
               <% else %>
-                <span class="span-text">R$<%= current_user.asset_value(cat.name).to_i %></span>
+                <span class="span-text">R$<%= current_user.asset_value(cat.name).to_i %>
+                </span>
               <% end %>
             </div>
           </div>
