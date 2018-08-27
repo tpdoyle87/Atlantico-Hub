@@ -2,4 +2,4 @@
 //= require_tree .
 //= require jquery
 //= require jquery-ui
-//= requrie tether
+//= require tether
