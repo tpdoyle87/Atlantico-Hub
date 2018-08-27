@@ -15,5 +15,16 @@ window.addEventListener("load", () => {
     }).disableSelection();
   } );
 
+  // $("#items-deny").sortable({
+  //   update: function(e, ui) {
+  //     Rails.ajax({
+  //       url:
+  //       type:
+  //       data:
+
+  //     });
+  //   }
+  // })
+
 })
 
