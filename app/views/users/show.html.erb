@@ -51,7 +51,7 @@
                   <span aria-hidden="true">  </span>
                   <span class="span-text">Cash</span>
                 </div>
-                  <%= image_tag "money.svg", class:"icons text-center" %>
+                  <%= image_tag "Cash.svg", class:"icons text-center" %>
                 <div class="amount">
                   <span class="span-text">R$<%= current_user.asset_value("Cash").to_i %></span>
                 </div>
@@ -61,7 +61,7 @@
                   <span aria-hidden="true">  </span>
                   <span class="span-text">Gold</span>
                 </div>
-                  <%= image_tag "gold-ingot.svg", class:"icons" %>
+                  <%= image_tag "Gold.svg", class:"icons" %>
                 <div class="amount">
                   <span class="span-text">R$<%= current_user.asset_value("Gold").to_i %></span>
                 </div>
@@ -71,7 +71,7 @@
                   <span aria-hidden="true">  </span>
                   <span class="span-text">Private Bonds</span>
                 </div>
-                <%= image_tag "invoice.svg", class:"icons" %>
+                <%= image_tag "Private Bonds.svg", class:"icons" %>
                 <div class="amount">
                   <span class="span-text">R$<%= current_user.asset_value("Private Bonds").to_i %></span>
                 </div>
