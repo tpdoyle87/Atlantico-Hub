@@ -7,15 +7,15 @@
     <div class ="col-md-4 col-md-offset-4 money-info">
       <div class="margin-call-box">
         <span><p>Margin Requirement</p></span>
-        <span><p><%= current_user.margin_call %></p></span>
+        <span><p><%= current_user.margin_call.requirement %></p></span>
       </div>
       <div class="margin-call-box">
         <span><p>Guarantees Deposited</p></span>
-        <span><p>R$7,400</p></span>
+        <span><p><%= current_user.margin_call.guarantee %></p></span>
       </div>
       <div class="margin-call-box">
         <span><h3>Margin Call</h3></span>
-        <span><h3>R$2,600</h3></span>
+        <span><h3><%= current_user.margin_call.call %></h3></span>
       </div>
     </div>
   </div>

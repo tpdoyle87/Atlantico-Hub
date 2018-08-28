@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_27_205202) do
+ActiveRecord::Schema.define(version: 2018_08_28_220424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,14 +34,16 @@ ActiveRecord::Schema.define(version: 2018_08_27_205202) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
-    t.boolean "deny", default: false
+    t.boolean "deny", default: true
   end
 
   create_table "margin_calls", force: :cascade do |t|
-    t.float "value"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "call_cents", default: 0, null: false
+    t.integer "requirement_cents", default: 0, null: false
+    t.integer "guarantee_cents", default: 0, null: false
     t.index ["user_id"], name: "index_margin_calls_on_user_id"
   end
 

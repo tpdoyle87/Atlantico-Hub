@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def margin_call
-    margin_calls.first.value
+    margin_calls.first.call
   end
 
   def asset_value(asset)

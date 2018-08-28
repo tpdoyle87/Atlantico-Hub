@@ -7,9 +7,9 @@ puts "generating a user!"
 user = User.new(email: 'atlantico@gmail.com', password: '123456', )
 user.save
 
-margin = MarginCall.new(value: '10000')
+margin = MarginCall.new(call: '500000', requirement: '1000000', guarantee: '500000' )
 margin.user = user
-margin.save
+margin.save!
 
 puts "user has been created"
 puts "Generating asset classes"
