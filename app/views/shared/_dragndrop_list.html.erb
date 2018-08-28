@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div id="items" class="list-group connectedSortable">
-        <% catagories = Category.order(:position) %>
+        <% catagories = Category.where(deny: false).order(:position) %>
         <% catagories.each_with_index do |cat| %>
-          <div class="list-group-item" data-id="1" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
+          <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
             <div class="flex-group text-left">
             <span class="my-handle" aria-hidden="true">☰</span>
             <span class="span-text"><%= cat.name %></span>
@@ -23,23 +23,30 @@
       </div>
 
 
-    <div class="deny-box">
-      <% title = 'Deny List' %>
-     <h2 class="text-center"><%= title.upcase! %></h2>
-    </div>
-    <div  id="items-deny" class="row connectedSortable">
-    <div class="col-md-8 col-md-offset-2 money-info">
-      <div class="layer tile" data-force="20">
-        <div class="tile__list">
-          <div id="denylist">
-            <div class="flex-group">
-            <span class="tile__name">Drag the assets you don't want to use as guarantee</span>
+      <div class="deny-box">
+        <% title = 'Deny List' %>
+       <h2 class="text-center"><%= title.upcase! %></h2>
+      </div>
+      <div id="items-deny" class="row connectedSortable" style="min-height: 50px; border: 1px solid #aaa; background: #a00">
+        <% catagories = Category.where(deny: true).order(:position) %>
+        <% catagories.each do |cat| %>
+          <div class="list-group-item" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
+            <div class="flex-group text-left">
+            <span class="my-handle" aria-hidden="true">☰</span>
+            <span class="span-text"><%= cat.name %></span>
+            </div>
+            <%= render "./svg/#{cat.name}" %>
+            <div class="amount">
+              <% if cat.name == "Stocks" %>
+                <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
+              <% else %>
+                <span class="span-text">R$<%= current_user.asset_value(cat.name).to_i %>
+                </span>
+              <% end %>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
-</div>
 </div>

@@ -3,28 +3,29 @@ window.addEventListener("load", () => {
   $('#items').sortable({
     update: function(e, ui) {
       Rails.ajax({
-        url: $(this).data("url"),
+        url:  '/categories/sort',
+        async: true,
         type: "PATCH",
         data: $(this).sortable('serialize'),
       });
     }
   });
+
+  $('#items-deny').sortable({
+    update: function(e, ui) {
+    Rails.ajax({
+      url: '/categories/deny',
+      async: true,
+      type: "PATCH",
+      data: $(this).sortable('serialize'),
+    })
+    }
+  });
+
   $( function() {
     $( "#items, #items-deny" ).sortable({
       connectWith: ".connectedSortable"
-    }).disableSelection();
-  } );
-
-  // $("#items-deny").sortable({
-  //   update: function(e, ui) {
-  //     Rails.ajax({
-  //       url:
-  //       type:
-  //       data:
-
-  //     });
-  //   }
-  // })
-
-})
+    });
+  });
+});
 
