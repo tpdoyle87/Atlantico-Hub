@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div id="items" class="list-group connectedSortable">
-        <% catagories = Category.order(:position) %>
+        <% catagories = Category.where(deny: false).order(:position) %>
         <% catagories.each_with_index do |cat| %>
           <div class="list-group-item" data-id="1" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
             <div class="flex-group text-left">
@@ -25,19 +25,18 @@
       <% title = 'Deny List' %>
      <h2 class="text-center"><%= title.upcase! %></h2>
     </div>
-    <div  id="items-deny" class="row connectedSortable">
-    <div class="col-md-8 col-md-offset-2 money-info">
-      <div class="layer tile" data-force="20">
-        <div class="tile__list">
-          <div id="denylist">
-            <div class="flex-group">
-            <span class="tile__name">Drag the assets you don't want to use as guarantee</span>
+    <div id="items-deny" class="row connectedSortable" style="min-height: 50px; border: 1px solid #aaa; background: #a00">
+      <!-- <div class="col-md-8 col-md-offset-2 money-info">
+        <div class="layer tile" data-force="20">
+          <div class="tile__list">
+            <div id="denylist">
+              <div class="flex-group">
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
-  </div>
 </div>
 </div>
 </div>

@@ -12,9 +12,12 @@ window.addEventListener("load", () => {
   $( function() {
     $( "#items, #items-deny" ).sortable({
       connectWith: ".connectedSortable"
-    }).disableSelection();
-  } );
-
+    });
+  });
+  $('#items-deny').on('sortreceive', () => {
+      alert("Shits been dropped to deny")
+    }
+  );
   // $("#items-deny").sortable({
   //   update: function(e, ui) {
   //     Rails.ajax({
