@@ -9,4 +9,22 @@ window.addEventListener("load", () => {
       });
     }
   });
+  $( function() {
+    $( "#items, #items-deny" ).sortable({
+      connectWith: ".connectedSortable"
+    }).disableSelection();
+  } );
+
+  // $("#items-deny").sortable({
+  //   update: function(e, ui) {
+  //     Rails.ajax({
+  //       url:
+  //       type:
+  //       data:
+
+  //     });
+  //   }
+  // })
+
 })
+
