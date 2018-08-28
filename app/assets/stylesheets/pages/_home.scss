@@ -40,14 +40,13 @@
   }
 }
 
+.images {
+  max-height: 250px;
+}
 
 .about {
   color: black;
   padding: 40px;
-  // text-align: center;
-  height: 600px;
-
-  // padding-left: 30px;
   background-color: white;
   background-size: cover !important;
   // display: grid;
@@ -80,7 +79,6 @@
     .icon-wrapper {
       align-items: center;
       justify-content: center;
-      height: 250px;
       padding: 0 20px 0 20px;
 
     }
@@ -89,7 +87,7 @@
       display: inline-block;
       margin-top: 20px;
       vertical-align: top;
-      width: 320px;
+      // width: 320px;
     }
   }
 }
@@ -98,7 +96,8 @@
   color: white;
   // text-align: center;
   // height: 40vh;
-  padding-left: 30px;
+  // padding-left: 30px;
+  padding: 40px;
   background-color: #12CCCC;
   background-size: cover !important;
   background-image: linear-gradient(-205deg,
@@ -133,6 +132,7 @@
   padding-left: 30px;
   background-color: white;
   background-size: cover !important;
+  padding: 40px;
   // display: flex;
   // align-items: center;
   // justify-content: left;
