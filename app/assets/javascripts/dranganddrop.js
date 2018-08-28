@@ -3,10 +3,22 @@ window.addEventListener("load", () => {
   $('#items').sortable({
     update: function(e, ui) {
       Rails.ajax({
-        url: $(this).data("url"),
+        url:  '/categories/sort',
+        async: true,
         type: "PATCH",
         data: $(this).sortable('serialize'),
       });
+    }
+  });
+
+  $('#items-deny').sortable({
+    update: function(e, ui) {
+    Rails.ajax({
+      url: '/categories/deny',
+      async: true,
+      type: "PATCH",
+      data: $(this).sortable('serialize'),
+    })
     }
   });
 
@@ -15,16 +27,5 @@ window.addEventListener("load", () => {
       connectWith: ".connectedSortable"
     });
   });
-  $('#items-deny').on('sortreceive', () => {
-    console.log($(this).data("url"))
-        Rails.ajax({
-          url: $(this).data("url"),
-          type: "PATCH",
-          data: "{deny: true}",
-        })
-
-      })
-    });
-
-
+});
 
