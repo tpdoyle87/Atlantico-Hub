@@ -9,25 +9,22 @@ window.addEventListener("load", () => {
       });
     }
   });
+
   $( function() {
     $( "#items, #items-deny" ).sortable({
       connectWith: ".connectedSortable"
     });
   });
   $('#items-deny').on('sortreceive', () => {
-      alert("Shits been dropped to deny")
-    }
-  );
-  // $("#items-deny").sortable({
-  //   update: function(e, ui) {
-  //     Rails.ajax({
-  //       url:
-  //       type:
-  //       data:
+    console.log($(this).data("url"))
+        Rails.ajax({
+          url: $(this).data("url"),
+          type: "PATCH",
+          data: "{deny: true}",
+        })
 
-  //     });
-  //   }
-  // })
+      })
+    });
 
-})
+
 
