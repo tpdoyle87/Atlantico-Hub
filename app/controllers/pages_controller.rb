@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
-  def home
-   redirect_to current_user if current_user
-  end
+  def home; end
 end
