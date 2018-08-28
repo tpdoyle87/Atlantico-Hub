@@ -1,50 +1,26 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2 text-center">
-    <div class="modal fade" id="modal-1">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-         <div class="modal-header">
+    <div class="modal fade" id="modal-2">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content"  id="landing">
+          <div class="header-image" style="background-image: url(<%= image_path "modal_banner.svg" %>)">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <!-- <h3 class="modal-title">Page header YAY</h3> -->
-            <div class="margin-modal">
-              <% title = 'Your preferences' %>
-              <h2 class="text-center"><%= title.upcase! %></h2>
-            </div>
-            <div class="margin-modal-text">
-              <p>This is how we are going to arrange your assets to cover the margin call:</p>
-            </div>
+          </div>
+         <div class="modal-header landing-banner-modal ">
+          <div class="modal-banner-image">
+              <div class="banner-content">
+                <% name = 'Get in touch' %>
+                <h1><%= name.upcase! %></h1>
+                <p>
+                  Exercitationem harum nobis odit dolores similique adipisci est. Dolores dolor sunt repudiandae repudiandae laborum sed. Voluptate eum laborum dignissimos error occaecati. Consequatur omnis in tempora adipisci dicta. Qui rem et aut sint quaerat aut. Sunt deserunt qui voluptatem eos necessitatibus aliquid voluptates.
+                </p>
+              </div>
+          </div>
          </div>
          <div class="modal-body">
-           <div class="list-group-item" data-id="1">
-            <div class="flex-group text-left">
-              <span aria-hidden="true">  </span>
-              <span class="span-text">Cash</span>
-            </div>
-              <%= image_tag "Cash.svg", class:"icons text-center" %>
-            <div class="amount">
-              <span class="span-text">R$<%= current_user.asset_value("Cash").to_i %></span>
-            </div>
-           </div>
-           <div class="list-group-item" data-id="9">
-            <div class="flex-group text-left">
-              <span aria-hidden="true">  </span>
-              <span class="span-text">Gold</span>
-            </div>
-              <%= image_tag "Gold.svg", class:"icons" %>
-            <div class="amount">
-              <span class="span-text">R$<%= current_user.asset_value("Gold").to_i %></span>
-            </div>
-           </div>
-           <div class="list-group-item"  data-id="5">
-            <div class="flex-group text-left">
-              <span aria-hidden="true">  </span>
-              <span class="span-text">Private Bonds</span>
-            </div>
-            <%= image_tag "Private Bonds.svg", class:"icons" %>
-            <div class="amount">
-              <span class="span-text">R$<%= current_user.asset_value("Private Bonds").to_i %></span>
-            </div>
-           </div>
+          <div>
+            <input type="text">
+          </div>
          </div>
          <div class="modal-footer">
            <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
