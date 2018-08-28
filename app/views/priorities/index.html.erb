@@ -7,7 +7,7 @@
       <h3 class="text-center">Your margin has been successfully covered.</h3>
     </div>
     <div class="row">
-      <div class ="col-md-4 col-md-offset-4 money-info">
+      <div class ="col-xs-12 col-md-4 col-md-offset-4 money-info">
         <div class="margin-call-box">
           <span><p>Margin Requirement</p></span>
           <span><p><%= current_user.margin_call %></p></span>
@@ -24,9 +24,9 @@
     </div>
   </div>
 
-  <div class="container" id="containinho">
+  <div class="container">
     <div class="row" id="rowzinho">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
         <div id="items" class="list-group">
           <div class="list-group-item"  data-id="5">
             <div class="flex-group text-left">
@@ -54,16 +54,18 @@
           <div class="amount">
             <span class="span-text">R$<%= current_user.asset_value("Gold").to_i %></span>
           </div>
-        </div>
+          </div>
         </div>
       </div>
     </div>
+    <hr id="containinho">
   </div>
 
   <div class="container">
-    <div class="col-md-4 col-md-offset-4">
-     <a class="btn btn-default">Return to home</a>
-     <a class="btn btn-primary">Print</a>
-     <a class="btn btn-primary">Send to email</a>
+    <div class="col-xs-12 col-md-4 col-md-offset-4">
+     <a class="btn btn-default btninho">Return to main</a>
+     <a class="btn btn-primary btninho">Print</a>
+     <a class="btn btn-primary btninho">Send to email</a>
     </div>
   </div>
+

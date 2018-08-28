@@ -4,12 +4,6 @@
   display: center;
 }
 
-#priority-cont2{
-  margin-top: 20px;
-  margin-right: 180px;
-
-}
-
 #containinho {
   margin-bottom:20px;
   border-bottom: 1px solid #12CCCC;
@@ -17,5 +11,15 @@
 
 #rowzinho {
   margin-bottom: 20px;
+}
+
+
+@media (max-width: 400px)
+{
+  .btninho
+   {
+    display: block;
+    margin-bottom: 10px;
+   }
 }
 
