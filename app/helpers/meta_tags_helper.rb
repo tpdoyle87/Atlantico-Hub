@@ -1,6 +1,7 @@
 module MetaTagsHelper
   def meta_title
-    "Atlantico Hub | #{content_for?(:meta_title) ? content_for(:meta_title) : DEFAULT_META["meta_title"]}"
+    var = content_for?(:meta_title) ? content_for(:meta_title) : DEFAULT_META["meta_title"]
+    "Atlantico Hub | #{var}"
   end
 
   def meta_description
