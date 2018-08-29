@@ -1,23 +1,15 @@
 class UsersController < ApplicationController
 
-def show
-  @user = current_user
-end
-
-def edit
-
-end
-
-def sort
-  params[:category].each_with_index do |id, index|
-    Category.where(id: id).update_all(position: index + 1)
+  def show
+    @user = current_user
+    @categories = Category.denied
+    # @categories = Category.where(deny: false).order(:position)
   end
-  head :ok
-end
 
-def update
-  sort
-end
+  def edit
+
+  end
+
 
 end
 

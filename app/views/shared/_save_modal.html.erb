@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <div class="modal fade" id="modal-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <!-- <h3 class="modal-title">Page header YAY</h3> -->
+            <div class="margin-modal">
+              <% title = 'Your preferences' %>
+              <h2 class="text-center"><%= title.upcase! %></h2>
+            </div>
+            <div class="margin-modal-text">
+              <p>This is how we are going to arrange your assets to cover the margin call:</p>
+            </div>
+          </div>
+          <div class="modal-body">
+
+            <div id="items-modal" class="list-group">
+              <%= render "shared/assets", categories: @categories %>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
+            <%= link_to 'Save', priority_path(current_user) , class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+
+
+  <% categories.each do |cat| %>
+  <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
+    <div class="flex-group text-left">
+      <span class="my-handle" aria-hidden="true">☰</span>
+      <span class="span-text"><%= cat.name %></span>
+    </div>
+    <%= render "./svg/#{cat.name}" %>
+    <div class="amount">
+      <% if cat.name == "Stocks" %>
+      <span class="span-text"><%= humanized_money_with_symbol(current_user.grab_stocks_value) %></span>
+      <% else %>
+      <span class="span-text"><%= humanized_money_with_symbol(current_user.asset_value(cat.name)) %>
+      </span>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+
+

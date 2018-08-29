@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  resources :users  do
 
-  end
-    resources :priorities, only: :index do
-    end
-
+  resources :users
+  resources :priorities, only: :show, as: :priorities
 
   resources :categories do
     collection do
       patch :sort
+      patch :deny
+      get :using
     end
   end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  authenticated :user do
+    root 'users#show', as: :authenticated_user
+  end
+  root to: 'pages#home'
 end
 

@@ -1,43 +1,52 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div id="items" class="list-group">
-
-        <% catagories = Category.order(:position) %>
+      <div id="items" class="list-group connectedSortable">
+        <% catagories = Category.where(deny: false).order(:position) %>
         <% catagories.each_with_index do |cat| %>
-          <div class="list-group-item" data-id="1" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
+          <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
             <div class="flex-group text-left">
             <span class="my-handle" aria-hidden="true">☰</span>
             <span class="span-text"><%= cat.name %></span>
             </div>
-             <%= image_tag "#{cat.name}.svg", class:"icons text-center" %>
-            <div class="amount">
+            <%= render "./svg/#{cat.name}" %>
+            <div class="amount allow-toons">
               <% if cat.name == "Stocks" %>
-                <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
+                <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
               <% else %>
-                <span class="span-text">R$<%= current_user.asset_value(cat.name).to_i %></span>
+                <span class="span-text"><%= current_user.asset_value(cat.name).format %>
+                </span>
               <% end %>
             </div>
           </div>
         <% end %>
       </div>
-    <div class="deny-box">
-      <% title = 'Deny List' %>
-     <h2 class="text-center"><%= title.upcase! %></h2>
-    </div>
-    <div class="row">
-    <div class="col-md-8 col-md-offset-2 money-info">
-      <div class="layer tile" data-force="20">
-        <div class="tile__list">
-          <div id="denylist">
-            <div class="flex-group">
-            <span class="tile__name">Drag the assets you don't want to use as guarantee</span>
+
+
+      <div class="deny-box">
+        <% title = 'Deny List' %>
+       <h2 class="text-center"><%= title.upcase! %></h2>
+      </div>
+      <div id="items-deny" class="row connectedSortable deny" >
+        <% catagories = Category.where(deny: true).order(:position) %>
+        <% catagories.each do |cat| %>
+          <div class="list-group-item" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
+            <div class="flex-group text-left">
+            <span class="my-handle" aria-hidden="true">☰</span>
+            <span class="span-text"><%= cat.name %></span>
+            </div>
+            <%= render "./svg/#{cat.name}" %>
+            <div class="amount deny-toons">
+              <% if cat.name == "Stocks" %>
+                <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
+              <% else %>
+                <span class="span-text"><%= current_user.asset_value(cat.name).format %>
+                </span>
+              <% end %>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
-</div>
 </div>

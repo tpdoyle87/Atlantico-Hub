@@ -7,9 +7,9 @@ puts "generating a user!"
 user = User.new(email: 'atlantico@gmail.com', password: '123456', )
 user.save
 
-margin = MarginCall.new(value: '10000')
+margin = MarginCall.new(call_cents: 500_000_30, requirement_cents: 1_000_000_80, guarantee_cents: 500_000_50 )
 margin.user = user
-margin.save
+margin.save!
 
 puts "user has been created"
 puts "Generating asset classes"
@@ -33,7 +33,7 @@ puts "Asset classes created"
   asset_rank = ASSET_RANKING.shuffle.pop
   asset = Asset.new(
     name: "#{stock}",
-    amount: "#{rand(5000..15000)}",
+    amount_cents: "#{rand(500_000..1_500_000)}",
     ranking: "#{asset_rank}",
     deny: false,
     guarantee: false
@@ -52,7 +52,7 @@ CATEGORIES.each do |category|
   next if category == "Stocks"
   asset = Asset.new(
     p name: category,
-    amount: "#{rand(100_000..400_000)}",
+    amount_cents: "#{rand(10_000_000..40_000_000)}",
     ranking: "#{asset_rank}",
     deny: false,
     guarantee: false
