@@ -16,7 +16,7 @@
       </div>
       <div class="margin-call-box">
         <span><h3>Margin Call</h3></span>
-        <span><h3><%= current_user.margin_call.call.format %></h3></span>
+        <span><h3><%= (current_user.margin_call.requirement - current_user.margin_call.guarantee).format %></h3></span>
       </div>
     </div>
   </div>

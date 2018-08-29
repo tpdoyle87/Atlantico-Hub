@@ -1,11 +1,10 @@
 
-<% call = current_user.margin_call.call %>
-<% catagories = Category.where(deny: false).order(:position) %>
-<% catagories.each_with_index do |cat| %>
+<% call = current_user.margin_call.requirement - current_user.margin_call.guarantee %>
+<% categories.each_with_index do |cat| %>
 <% break if call.zero? %>
   <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
     <div class="flex-group text-left">
-      <span class="my-handle" aria-hidden="true">☰</span>
+      <span class="my-handle" aria-hidden="true"></span>
       <span class="span-text"><%= cat.name %></span>
     </div>
     <%= render "./svg/#{cat.name}" %>
@@ -30,4 +29,5 @@
     </div>
   </div>
 <% end %>
+
 

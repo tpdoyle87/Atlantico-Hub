@@ -7,15 +7,18 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <!-- <h3 class="modal-title">Page header YAY</h3> -->
             <div class="margin-modal">
-              <% title = 'Your preferences' %>
+              <% title = 'Confirmation' %>
               <h2 class="text-center"><%= title.upcase! %></h2>
             </div>
             <div class="margin-modal-text">
-              <p>This is how we are going to arrange your assets to cover the margin call:</p>
+              <p>Your assets will be used acording to this selection:</p>
             </div>
           </div>
-          <div class="modal-body">
+          <div id="items-modal">
               <%= render "shared/assets", categories: @categories %>
+              <div class="deposit text-right">
+                <p><strong>Total: <%= (current_user.margin_call.requirement - current_user.margin_call.guarantee).format %></strong>   </p>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -23,10 +26,6 @@
             <%= link_to 'Save', priority_path(current_user) , class: 'btn btn-primary' %>
           </div>
         </div>
-        <div class="modal-footer">
-         <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
-         <%= link_to 'Save', priorities_path(current_user) , class: 'btn btn-primary' %>
-       </div>
      </div>
    </div>
  </div>
