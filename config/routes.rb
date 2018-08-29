@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :prospects, only: :create
+
   devise_for :users
 
   resources :users
