@@ -1,3 +1,5 @@
+<% content_for :title, "Reorder your assets" %>
+
 <div class="container">
   <div class="margin-box">
      <% title = 'Margin Call' %>
@@ -7,14 +9,14 @@
     <div class ="col-md-6 col-md-offset-3 money-info">
       <div class="margin-call-box">
         <span><p>Margin Requirement</p></span>
-        <span><p><%= humanized_money_with_symbol(current_user.margin_call.requirement) %></p></span>      </div>
+        <span><p><%= current_user.margin_call.requirement.format %></p></span>      </div>
       <div class="margin-call-box">
         <span><p>Guarantees Deposited</p></span>
-        <span><p><%= humanized_money_with_symbol(current_user.margin_call.guarantee) %></p></span>
+        <span><p><%= current_user.margin_call.guarantee.format %></p></span>
       </div>
       <div class="margin-call-box">
         <span><h3>Margin Call</h3></span>
-        <span><h3><%= humanized_money_with_symbol(current_user.margin_call.call) %></h3></span>
+        <span><h3><%= current_user.margin_call.call.format %></h3></span>
       </div>
     </div>
   </div>

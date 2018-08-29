@@ -1,0 +1,77 @@
+  <div class="container">
+    <div class="margin-box">
+       <% title = 'Congratulations!' %>
+       <h2 class="text-center"><%= title.upcase! %></h2>
+     </div>
+    <div>
+      <h3 class="text-center">Your margin has been successfully covered.</h3>
+    </div>
+    <div class="row">
+      <div class ="col-xs-12 col-md-4 col-md-offset-4 money-info">
+        <div class="margin-call-box">
+          <span><p>Margin Requirement</p></span>
+          <span><p><%= current_user.margin_call.requirement.format %></p></span>
+        </div>
+        <div class="margin-call-box">
+          <span><p>Total Deposited</p></span>
+          <span><p><%= current_user.margin_call.call.format %></p></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container">
+    <div class="row" id="rowzinho">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+        <div id="items" class="list-group">
+          <div class="list-group-item"  data-id="5">
+            <div class="flex-group text-left">
+              <span class="span-text">Private Bonds</span>
+            </div>
+            <%= image_tag "receipt.svg", class:"icons" %>
+            <div class="amount">
+              <span class="span-text"><%= current_user.asset_value("Private Bonds").format %></span>
+            </div>
+            </div>
+            <% catagories = Category.where(deny: false).order(:position) %>
+              <div class="list-group-item" data-id="1">
+              <div class="flex-group text-left">
+              <span class="span-text">Cash</span>
+              </div>
+              <%= image_tag "Cash.svg", class:"icons text-center" %>
+              <div class="amount">
+              <span class="span-text"><%= current_user.asset_value("Cash").format %></span>
+            </div>
+          </div>
+          </div>
+          <% catagories = Category.where(deny: false).order(:position) %>
+            <div class="list-group-item" data-id="1">
+            <div class="flex-group text-left">
+            <span class="span-text">Cash</span>
+            </div>
+              <%= image_tag "Gold.svg", class:"icons" %>
+          <div class="amount">
+            <span class="span-text"><%= current_user.asset_value("Gold").format %></span>
+          </div>
+        </div>
+          <div class="list-group-item" data-id="9">
+          <div class="flex-group text-left">
+            <span class="span-text">Gold</span>
+          </div>
+            <%= image_tag "Gold.svg", class:"icons" %>
+        <div class="amount">
+          <span class="span-text"><%= humanized_money_with_symbol(current_user.asset_value("Gold")) %></span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr id="containinho">
+</div>
+  <div class="container">
+    <div class="col-md-4 col-md-offset-4">
+     <a class="btn btn-default btn-priority">Return to home</a>
+     <a class="btn btn-primary btn-priority">Print</a>
+     <a class="btn btn-primary btn-priority">Send to email</a>
+    </div>
+  </div>

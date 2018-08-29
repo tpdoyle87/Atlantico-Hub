@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_220424) do
+ActiveRecord::Schema.define(version: 2018_08_29_145128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "assets", force: :cascade do |t|
     t.string "name"
-    t.float "amount"
     t.integer "ranking"
     t.boolean "deny"
     t.boolean "guarantee"
@@ -25,6 +24,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_220424) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
     t.index ["category_id"], name: "index_assets_on_category_id"
     t.index ["user_id"], name: "index_assets_on_user_id"
   end
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 2018_08_28_220424) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "call_cents", default: 0, null: false
-    t.integer "requirement_cents", default: 0, null: false
-    t.integer "guarantee_cents", default: 0, null: false
+    t.bigint "call_cents", default: 0, null: false
+    t.bigint "requirement_cents", default: 0, null: false
+    t.bigint "guarantee_cents", default: 0, null: false
     t.index ["user_id"], name: "index_margin_calls_on_user_id"
   end
 
