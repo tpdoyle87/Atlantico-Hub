@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_220424) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
-    t.boolean "deny", default: false
+    t.boolean "deny", default: true
   end
 
   create_table "margin_calls", force: :cascade do |t|
