@@ -19,12 +19,17 @@
          </div>
          <div class="modal-body">
           <div>
-            <input type="text">
+       <%= simple_form_for prospect, remote: true do |f| %>
+        <%= f.input :name %>
+        <%= f.input :email %>
+
           </div>
          </div>
          <div class="modal-footer">
-           <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
-           <%= link_to 'Save', root_path , class: 'btn btn-primary' %>
+           <a id="prospect-close-btn" href="" class="btn btn-default" data-dismiss="modal">Close</a>
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          <% end %>
+
          </div>
         </div>
       </div>
