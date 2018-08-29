@@ -12,9 +12,9 @@
             <%= render "./svg/#{cat.name}" %>
             <div class="amount">
               <% if cat.name == "Stocks" %>
-                <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
+                <span class="span-text"><%= humanized_money_with_symbol(current_user.asset_value(current_user.grab_stocks_value)) %></span>
               <% else %>
-                <span class="span-text">R$<%= current_user.asset_value(cat.name).to_i %>
+                <span class="span-text"><%= humanized_money_with_symbol(current_user.asset_value(cat.name)) %>
                 </span>
               <% end %>
             </div>
@@ -38,9 +38,9 @@
             <%= render "./svg/#{cat.name}" %>
             <div class="amount">
               <% if cat.name == "Stocks" %>
-                <span class="span-text">R$<%= current_user.grab_stocks_value.to_i %></span>
+                <span class="span-text"><%= humanized_money_with_symbol(current_user.grab_stocks_value) %></span>
               <% else %>
-                <span class="span-text">R$<%= current_user.asset_value(cat.name).to_i %>
+                <span class="span-text"><%= humanized_money_with_symbol(current_user.asset_value(cat.name)) %>
                 </span>
               <% end %>
             </div>

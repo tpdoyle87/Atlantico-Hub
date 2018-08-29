@@ -9,11 +9,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def margin_call
-    margin_calls.first.value
+    margin_calls.first
   end
 
   def asset_value(asset)
-    assets.where(name: "#{asset}").first.amount
+    assets.find_by(name: "#{asset}").amount
   end
 
   def grab_stocks_value
