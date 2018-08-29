@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
   $('#items').sortable({
     update: function(e, ui) {
       Rails.ajax({
-        url:  '/categories/sort',
+        url: '/categories/sort',
         async: true,
         type: "PATCH",
         data: $(this).sortable('serialize'),
@@ -28,4 +28,5 @@ window.addEventListener("load", () => {
     });
   });
 });
+
 
