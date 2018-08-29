@@ -1,4 +1,4 @@
-
+if (document.querySelector("#items-deny")) {
 window.addEventListener("load", () => {
   $('#items').sortable({
     update: function(e, ui) {
@@ -28,5 +28,5 @@ window.addEventListener("load", () => {
     });
   });
 });
-
+};
 
