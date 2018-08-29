@@ -3,4 +3,17 @@ class Priority < ApplicationRecord
   belongs_to :user
   belongs_to :category
   validates :ranking, presence: true
+
+  def asset_value(asset)
+    assets.find_by(name: "#{asset}").amount
+  end
+
+  def grab_stocks_value
+    stocks = assets.where(category_id: 5)
+    total = 0
+    stocks.each do |stock|
+      total += stock.amount
+    end
+    total
+  end
 end
