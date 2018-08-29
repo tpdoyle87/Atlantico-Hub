@@ -4,12 +4,20 @@ class CategoriesController < ApplicationController
       Category.where(id: id).update_all(position: index + 1)
       Category.where(id: id).update_all(deny: false)
     end
-      head :ok
+    @categories = Category.denied
+    respond_to do |format|
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
     end
+  end
+
   def deny
     params[:category].each do |id|
       Category.where(id: id).update_all(deny: true)
     end
     head :ok
+  end
+
+  def using
+    @categories = Category.not.denied
   end
 end

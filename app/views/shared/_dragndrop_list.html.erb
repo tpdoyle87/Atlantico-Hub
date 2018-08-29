@@ -12,7 +12,7 @@
             <%= render "./svg/#{cat.name}" %>
             <div class="amount">
               <% if cat.name == "Stocks" %>
-                <span class="span-text"><%= current_user.asset_value(current_user.grab_stocks_value).format %></span>
+                <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
               <% else %>
                 <span class="span-text"><%= current_user.asset_value(cat.name).format %>
                 </span>

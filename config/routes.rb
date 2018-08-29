@@ -2,14 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users
-  resources :priorities, only: :index
+  resources :priorities, only: :show, as: :priorities
 
   resources :categories do
     collection do
       patch :sort
-    end
-    collection do
       patch :deny
+      get :using
     end
   end
   authenticated :user do
