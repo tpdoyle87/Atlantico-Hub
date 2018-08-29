@@ -33,7 +33,7 @@ puts "Asset classes created"
   asset_rank = ASSET_RANKING.shuffle.pop
   asset = Asset.new(
     name: "#{stock}",
-    amount_cents: "#{rand(5000..15000)}",
+    amount_cents: "#{rand(500_000..1_500_000)}",
     ranking: "#{asset_rank}",
     deny: false,
     guarantee: false
@@ -52,7 +52,7 @@ CATEGORIES.each do |category|
   next if category == "Stocks"
   asset = Asset.new(
     p name: category,
-    amount_cents: "#{rand(100_000..400_000)}",
+    amount_cents: "#{rand(10_000_000..40_000_000)}",
     ranking: "#{asset_rank}",
     deny: false,
     guarantee: false

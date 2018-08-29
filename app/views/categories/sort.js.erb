@@ -1,0 +1,8 @@
+function addList(listas) {
+  const assetList = document.getElementById('items-modal');
+  assetList.innerHTML = '';
+  assetList.insertAdjacentHTML('beforeend', listas);
+}
+
+  addList('<%= j render "shared/assets", categories: @categories %>');
+

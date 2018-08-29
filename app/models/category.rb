@@ -4,4 +4,5 @@ class Category < ApplicationRecord
   has_many :priorities
   validates :name, presence: true
 
+  scope :denied, -> { where(deny: false).order(:position) }
 end

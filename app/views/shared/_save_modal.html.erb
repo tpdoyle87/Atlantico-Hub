@@ -3,49 +3,25 @@
     <div class="modal fade" id="modal-1">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <!-- <h3 class="modal-title">Page header YAY</h3> -->
-          <div class="margin-modal">
-            <% title = 'Your preferences' %>
-            <h2 class="text-center"><%= title.upcase! %></h2>
-          </div>
-          <div class="margin-modal-text">
-            <p>This is how we are going to arrange your assets to cover the margin call:</p>
-          </div>
-        </div>
-        <div class="modal-body">
-          <% call = current_user.margin_call.call %>
-          <% catagories = Category.where(deny: false).order(:position) %>
-          <% catagories.each_with_index do |cat| %>
-          <% break if call.zero? %>
-          <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
-            <div class="flex-group text-left">
-              <span class="my-handle" aria-hidden="true">☰</span>
-              <span class="span-text"><%= cat.name %></span>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <!-- <h3 class="modal-title">Page header YAY</h3> -->
+            <div class="margin-modal">
+              <% title = 'Your preferences' %>
+              <h2 class="text-center"><%= title.upcase! %></h2>
             </div>
-            <%= render "./svg/#{cat.name}" %>
-            <div class="amount">
-              <% if cat.name == "Stocks" %>
-                <% if call < current_user.grab_stocks_value %>
-                  <span class="span-text"><%= call.format %></span>
-                  <% call = 0 %>
-                <% else %>
-                  <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
-                  <% call = call - current_user.grab_stocks_value %>
-                <% end %>
-              <% else %>
-                <% if call < current_user.asset_value(cat.name) %>
-                  <span class="span-text"><%= call.format %></span>
-                  <% call = 0 %>
-                <% else %>
-                  <span class="span-text"><%= current_user.asset_value(cat.name).format %></span>
-                  <% call = call - current_user.asset_value(cat.name) %>
-                <% end %>
-              <% end %>
+            <div class="margin-modal-text">
+              <p>This is how we are going to arrange your assets to cover the margin call:</p>
             </div>
           </div>
-          <% end %>
+          <div class="modal-body">
+              <%= render "shared/assets", categories: @categories %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
+            <%= link_to 'Save', priority_path(current_user) , class: 'btn btn-primary' %>
+          </div>
         </div>
         <div class="modal-footer">
          <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
