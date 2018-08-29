@@ -22,7 +22,7 @@
             </div>
               <%= image_tag "Cash.svg", class:"icons text-center" %>
             <div class="amount">
-              <span class="span-text">R$<%= current_user.asset_value("Cash").to_i %></span>
+              <span class="span-text">R$<%= current_user.asset_value("Cash").format %></span>
             </div>
            </div>
            <div class="list-group-item" data-id="9">
@@ -32,7 +32,7 @@
             </div>
               <%= image_tag "Gold.svg", class:"icons" %>
             <div class="amount">
-              <span class="span-text">R$<%= current_user.asset_value("Gold").to_i %></span>
+              <span class="span-text">R$<%= current_user.asset_value("Gold").format %></span>
             </div>
            </div>
            <div class="list-group-item"  data-id="5">
@@ -42,7 +42,7 @@
             </div>
             <%= image_tag "Private Bonds.svg", class:"icons" %>
             <div class="amount">
-              <span class="span-text">R$<%= current_user.asset_value("Private Bonds").to_i %></span>
+              <span class="span-text">R$<%= current_user.asset_value("Private Bonds").format %></span>
             </div>
            </div>
          </div>
