@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'acts_as_list'
 gem 'rails-assets-tether'
+gem 'money-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
