@@ -1,21 +1,33 @@
 
-
-  <% categories.each do |cat| %>
+<% call = current_user.margin_call.requirement - current_user.margin_call.guarantee %>
+<% categories.each_with_index do |cat| %>
+<% break if call.zero? %>
   <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
     <div class="flex-group text-left">
-      <span class="my-handle" aria-hidden="true">☰</span>
+      <span class="my-handle" aria-hidden="true"></span>
       <span class="span-text"><%= cat.name %></span>
     </div>
     <%= render "./svg/#{cat.name}" %>
     <div class="amount">
       <% if cat.name == "Stocks" %>
-      <span class="span-text"><%= humanized_money_with_symbol(current_user.grab_stocks_value) %></span>
+        <% if call < current_user.grab_stocks_value %>
+          <span class="span-text"><%= call.format %></span>
+          <% call = 0 %>
+        <% else %>
+          <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
+          <% call = call - current_user.grab_stocks_value %>
+        <% end %>
       <% else %>
-      <span class="span-text"><%= humanized_money_with_symbol(current_user.asset_value(cat.name)) %>
-      </span>
+        <% if call < current_user.asset_value(cat.name) %>
+          <span class="span-text"><%= call.format %></span>
+          <% call = 0 %>
+        <% else %>
+          <span class="span-text"><%= current_user.asset_value(cat.name).format %></span>
+          <% call = call - current_user.asset_value(cat.name) %>
+        <% end %>
       <% end %>
     </div>
   </div>
-  <% end %>
+<% end %>
 
 
