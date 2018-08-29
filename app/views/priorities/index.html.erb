@@ -10,16 +10,12 @@
       <div class ="col-xs-12 col-md-4 col-md-offset-4 money-info">
         <div class="margin-call-box">
           <span><p>Margin Requirement</p></span>
-          <span><p><%= current_user.margin_call %></p></span>
+          <span><p><%= humanized_money_with_symbol(current_user.margin_call.value) %></p></span>
         </div>
         <div class="margin-call-box">
           <span><p>Total Deposited</p></span>
-          <span><p>R$7,400</p></span>
+          <span><p><%= humanized_money_with_symbol(current_user.margin_call.call) %></p></span>
         </div>
-       <!--  <div class="margin-call-box">
-          <span><h2>Margin Call</h2></span>
-          <span><h2>R$2,600</h2></span>
-        </div> -->
       </div>
     </div>
   </div>
@@ -34,16 +30,17 @@
             </div>
             <%= image_tag "receipt.svg", class:"icons" %>
             <div class="amount">
-              <span class="span-text">R$<%= current_user.asset_value("Private Bonds").to_i %></span>
+              <span class="span-text"><%= humanized_money_with_symbol(current_user.asset_value("Private Bonds")) %></span>
             </div>
             </div>
+            <% catagories = Category.where(deny: false).order(:position) %>
               <div class="list-group-item" data-id="1">
               <div class="flex-group text-left">
               <span class="span-text">Cash</span>
               </div>
               <%= image_tag "Cash.svg", class:"icons text-center" %>
               <div class="amount">
-              <span class="span-text">R$<%= current_user.asset_value("Cash").to_i %></span>
+              <span class="span-text"><%= humanized_money_with_symbol(current_user.asset_value("Cash")) %></span>
             </div>
           </div>
             <div class="list-group-item" data-id="9">
@@ -52,7 +49,7 @@
             </div>
               <%= image_tag "Gold.svg", class:"icons" %>
           <div class="amount">
-            <span class="span-text">R$<%= current_user.asset_value("Gold").to_i %></span>
+            <span class="span-text"><%= humanized_money_with_symbol(current_user.asset_value("Gold")) %></span>
           </div>
           </div>
         </div>
