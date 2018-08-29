@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_29_145128) do
+ActiveRecord::Schema.define(version: 2018_08_29_203327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_145128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
-    t.boolean "deny", default: false
+    t.boolean "deny", default: true
   end
 
   create_table "margin_calls", force: :cascade do |t|
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 2018_08_29_145128) do
     t.integer "position"
     t.index ["category_id"], name: "index_priorities_on_category_id"
     t.index ["user_id"], name: "index_priorities_on_user_id"
+  end
+
+  create_table "prospects", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
