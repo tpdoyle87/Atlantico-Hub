@@ -5,14 +5,14 @@ class Priority < ApplicationRecord
   validates :ranking, presence: true
 
   def asset_value(asset)
-    assets.find_by(name: "#{asset}").amount
+    assets.find_by(name: "#{asset}").amount_cents
   end
 
   def grab_stocks_value
     stocks = assets.where(category_id: 5)
     total = 0
     stocks.each do |stock|
-      total += stock.amount
+      total += stock.amount_cents
     end
     total
   end
