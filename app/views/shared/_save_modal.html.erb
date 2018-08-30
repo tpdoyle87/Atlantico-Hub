@@ -16,10 +16,7 @@
           </div>
           <div class="modal-body">
             <div id="items-modal">
-                <%= render "shared/assets", categories: @categories %>
-              <div class="deposit text-right">
-                <p><strong>Total: <%= (current_user.margin_call.requirement - current_user.margin_call.guarantee).format %></strong>   </p>
-              </div>
+                <%= render "shared/assets", categories: @categories, margin: @margin_call %>
             </div>
           </div>
           </div>

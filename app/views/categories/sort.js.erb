@@ -3,6 +3,5 @@ function addList(listas) {
   assetList.innerHTML = '';
   assetList.insertAdjacentHTML('beforeend', listas);
 }
-
-  addList('<%= j render "shared/assets", categories: @categories %>');
+  addList('<%= j render "shared/assets", categories: @categories, margin: @margin_call %>');
 

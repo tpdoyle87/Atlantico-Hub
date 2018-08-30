@@ -29,6 +29,9 @@
     </div>
   </div>
 <% end %>
+<div class="deposit text-right">
+  <p><strong>Total: <%= (current_user.margin_call.requirement - current_user.margin_call.guarantee).format %></strong> </p>
+</div>
 
 
 

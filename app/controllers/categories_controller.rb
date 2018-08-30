@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
       Category.where(id: id).update_all(deny: false)
     end
     @categories = Category.denied
+    @margin_call = current_user.margin_call
     respond_to do |format|
       format.js  # <-- will render `app/views/reviews/create.js.erb`
     end
