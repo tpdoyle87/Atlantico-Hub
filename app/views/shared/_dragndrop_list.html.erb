@@ -4,18 +4,17 @@
       <div id="items" class="list-group connectedSortable">
         <% categories = Category.where(deny: false).order(:position) %>
         <% categories.each_with_index do |cat| %>
+        <% value = cat.name == "Stocks" ? current_user.grab_stocks_value : current_user.asset_value(cat.name) %>
           <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
+            <div class="hidden js-set-color">
+              <%= value %>
+            </div>
             <div class="flex-group text-left">
             <span class="my-handle" aria-hidden="true"><%= render "./svg/Dragndrop" %></span>
             <span class="span-text">
               <%= cat.name %>
               <div class="mobile-only">
-                <% if cat.name == "Stocks" %>
-                  <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
-                <% else %>
-                  <span class="span-text"><%= current_user.asset_value(cat.name).format %>
-                  </span>
-                <% end %>
+                <span class="span-text"><%= value.format %></span>
               </div>
               </span>
             </div>
