@@ -89,3 +89,49 @@
 }
 
 
+.items {
+  min-height: 100px;
+}
+
+@media (min-width: 500px)
+{
+    .mobile-only {
+    display: none;
+  }
+ }
+
+
+@media (max-width: 500px)
+{
+  .money-info
+   {
+    padding: 15px;
+   }
+   .margin-call-box span
+   {
+    display: block;
+    text-align: center;
+
+   }
+   .mobile-bold {
+      font-weight: bold;
+    }
+    .mobile-hide {
+      display: none;
+    }
+    .mobile-only {
+      display: block;
+    }
+
+    .icons {
+      left: auto;
+      right: 10px;
+    }
+    .my-handle {
+      margin-right: 15px;
+    }
+    .flex-group .span-text div{
+      margin-left: 35px;
+    }
+
+}

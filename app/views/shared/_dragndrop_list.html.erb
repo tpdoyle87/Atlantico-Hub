@@ -7,10 +7,20 @@
           <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
             <div class="flex-group text-left">
             <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text"><%= cat.name %></span>
+            <span class="span-text">
+              <%= cat.name %>
+              <div class="mobile-only">
+                <% if cat.name == "Stocks" %>
+                  <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
+                <% else %>
+                  <span class="span-text"><%= current_user.asset_value(cat.name).format %>
+                  </span>
+                <% end %>
+              </div>
+              </span>
             </div>
             <%= render "./svg/#{cat.name}" %>
-            <div class="amount allow-toons">
+            <div class="mobile-hide amount allow-toons">
               <% if cat.name == "Stocks" %>
                 <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
               <% else %>
@@ -33,17 +43,28 @@
           <div class="list-group-item" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
             <div class="flex-group text-left">
             <span class="my-handle" aria-hidden="true">☰</span>
-            <span class="span-text"><%= cat.name %></span>
-            </div>
-            <%= render "./svg/#{cat.name}" %>
-            <div class="amount deny-toons">
+            <span class="span-text">
+              <%= cat.name %>
+              <div class="mobile-only">
+                <% if cat.name == "Stocks" %>
+                  <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
+                <% else %>
+                  <span class="span-text"><%= current_user.asset_value(cat.name).format %>
+                  </span>
+                <% end %>
+              </div>
+            </span>
+
+          </div>
+          <%= render "./svg/#{cat.name}" %>
+          <div class="mobile-hide amount deny-toons">
               <% if cat.name == "Stocks" %>
                 <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
               <% else %>
                 <span class="span-text"><%= current_user.asset_value(cat.name).format %>
                 </span>
               <% end %>
-            </div>
+          </div>
           </div>
         <% end %>
       </div>
