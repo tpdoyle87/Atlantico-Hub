@@ -2,6 +2,17 @@ function addList(listas) {
   const assetList = document.getElementById('items-modal');
   assetList.innerHTML = '';
   assetList.insertAdjacentHTML('beforeend', listas);
+
 }
   addList('<%= j render "shared/assets", categories: @categories, margin: @margin_call %>');
 
+<%
+  @assets_sum = 0
+  @categories.each { |category| @assets_sum += category.assets.map(&:amount).reduce(:+) }
+ %>
+
+<% if @assets_sum > current_user.margin_call.requirement - current_user.margin_call.guarantee %>
+  $("#js-set-color").css('color', '#12cccc' )
+<% else %>
+ $("#js-set-color").css('color', '#EE5F5B' )
+<% end %>

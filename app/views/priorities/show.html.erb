@@ -28,19 +28,18 @@
       <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
         <% call = current_user.margin_call.call %>
         <% @categories.each_with_index do |cat| %>
+        <% value = cat.name == "Stocks" ? current_user.grab_stocks_value : current_user.asset_value(cat.name) %>
         <% break if call.zero? %>
             <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
+              <div class="hidden js-set-color">
+                <% value %>
+              </div>
               <div class="flex-group text-left">
                 <span class="my-handle" aria-hidden="true">&#10004;</span>
                 <span class="span-text">
                   <%= cat.name %>
                   <div class="mobile-only">
-                    <% if cat.name == "Stocks" %>
-                      <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
-                    <% else %>
-                      <span class="span-text"><%= current_user.asset_value(cat.name).format %>
-                      </span>
-                    <% end %>
+                      <span class="span-text"><%= value.format %></span>
                   </div>
                 </span>
               </div>
