@@ -14,12 +14,14 @@
               <p>Your assets will be used acording to this selection:</p>
             </div>
           </div>
-          <div id="items-modal">
-              <%= render "shared/assets", categories: @categories %>
+          <div class="modal-body">
+            <div id="items-modal">
+                <%= render "shared/assets", categories: @categories %>
               <div class="deposit text-right">
                 <p><strong>Total: <%= (current_user.margin_call.requirement - current_user.margin_call.guarantee).format %></strong>   </p>
               </div>
             </div>
+          </div>
           </div>
           <div class="modal-footer">
             <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
