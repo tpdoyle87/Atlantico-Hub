@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div id="items" class="list-group connectedSortable">
-        <% catagories = Category.where(deny: false).order(:position) %>
-        <% catagories.each_with_index do |cat| %>
+        <% categories = Category.where(deny: false).order(:position) %>
+        <% categories.each_with_index do |cat| %>
           <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
             <div class="flex-group text-left">
             <span class="my-handle" aria-hidden="true">☰</span>
@@ -38,8 +38,8 @@
        <h2 class="text-center"><%= title.upcase! %></h2>
       </div>
       <div id="items-deny" class="row connectedSortable deny" >
-        <% catagories = Category.where(deny: true).order(:position) %>
-        <% catagories.each do |cat| %>
+        <% categories = Category.where(deny: true).order(:position) %>
+        <% categories.each do |cat| %>
           <div class="list-group-item" data_url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
             <div class="flex-group text-left">
             <span class="my-handle" aria-hidden="true">☰</span>

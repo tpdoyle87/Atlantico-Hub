@@ -1,70 +1,87 @@
-<div class="container">
-  <div class="margin-box">
-     <% title = 'Congratulations!' %>
-     <h2 class="text-center"><%= title.upcase! %></h2>
-   </div>
-  <div>
-    <h3 class="text-center">Your margin call has been successfully covered.</h3>
+<div class="conatiner">
+  <div class="container">
+    <div class="margin-box">
+     </div>
+    <div>
+      <h3 class="text-center">Your margin call has been successfully covered.</h3>
+    </div>
+    <div class="row">
+      <div class ="col-xs-12 col-md-6 col-md-offset-3 money-info">
+        <div class="margin-call-box">
+          <span><p>Margin Covered</p></span>
+          <span><p><%= current_user.margin_call.call.format %></p></span>
+        </div>
+        <div class="margin-call-box">
+          <span><p>Remaining Margin Call</p></span>
+          <span><p><%= (current_user.margin_call.requirement - current_user.margin_call.guarantee).format %></p></span>
+        </div>
+        <div class="margin-call-box">
+          <span><p>Guarantees Deposited</p></span>
+          <span><p><%= current_user.margin_call.requirement.format %></p></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row" id="rowzinho">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+        <% call = current_user.margin_call.call %>
+        <% @categories.each_with_index do |cat| %>
+        <% break if call.zero? %>
+            <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
+              <div class="flex-group text-left">
+                <span class="my-handle" aria-hidden="true">&#10004;</span>
+                <span class="span-text">
+                  <%= cat.name %>
+                  <div class="mobile-only">
+                    <% if cat.name == "Stocks" %>
+                      <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
+                    <% else %>
+                      <span class="span-text"><%= current_user.asset_value(cat.name).format %>
+                      </span>
+                    <% end %>
+                  </div>
+                </span>
+              </div>
+              <%= render "./svg/#{cat.name}" %>
+              <div class="mobile-hide amount">
+                <% if cat.name == "Stocks" %>
+                  <% if call < current_user.grab_stocks_value %>
+                    <span class="span-text"><%= call.format %></span>
+                    <% call = 0 %>
+                  <% else %>
+                    <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
+                    <% call = call - current_user.grab_stocks_value %>
+                  <% end %>
+                <% else %>
+                  <% if call < current_user.asset_value(cat.name) %>
+                    <span class="span-text"><%= call.format %></span>
+                    <% call = 0 %>
+                  <% else %>
+                    <span class="span-text"><%= current_user.asset_value(cat.name).format %></span>
+                    <% call = call - current_user.asset_value(cat.name) %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    <hr id="containinho">
   </div>
   <div class="row">
-    <div class ="col-xs-12 col-md-6 col-md-offset-3 money-info">
-      <div class="margin-call-box">
-        <span><p>Margin Covered</p></span>
-        <span><p><%= current_user.margin_call.call.format %></p></span>
-      </div>
-      <div class="margin-call-box">
-        <span><p>Remaining Margin Call</p></span>
-        <span><p><%= (current_user.margin_call.requirement - current_user.margin_call.guarantee).format %></p></span>
-      </div>
-      <div class="margin-call-box">
-        <span><p>Guarantees Deposited</p></span>
-        <span><p><%= current_user.margin_call.requirement.format %></p></span>
+    <div class="mobile-only">
+      <div class="col-md-4 text-center">
+       <%= link_to "Return home", root_path, class:"btn btn-default btn-priority" %>
+       <button class="btn btn-primary btn-priority" onclick="window.print()">Print report</button>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row" id="rowzinho">
-    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-      <% call = current_user.margin_call.call %>
-      <% @categories.each_with_index do |cat| %>
-      <% break if call.zero? %>
-        <div class="list-group-item" data-id="1" data-url="<%= sort_categories_path %>" id='<%= dom_id(cat) %>'>
-          <div class="flex-group text-left">
-            <span class="my-handle hidden-xs" aria-hidden="true"></span>
-            <span class="span-text"><%= cat.name %></span>
-          </div>
-          <%= render "./svg/#{cat.name}" %>
-          <div class="amount">
-            <% if cat.name == "Stocks" %>
-              <% if call < current_user.grab_stocks_value %>
-                <span class="span-text"><%= call.format %></span>
-                <% call = 0 %>
-              <% else %>
-                <span class="span-text"><%= current_user.grab_stocks_value.format %></span>
-                <% call = call - current_user.grab_stocks_value %>
-              <% end %>
-            <% else %>
-              <% if call < current_user.asset_value(cat.name) %>
-                <span class="span-text"><%= call.format %></span>
-                <% call = 0 %>
-              <% else %>
-                <span class="span-text"><%= current_user.asset_value(cat.name).format %></span>
-                <% call = call - current_user.asset_value(cat.name) %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+    <div class="mobile-hide">
+      <div class="text-center">
+        <%= link_to "Return home", root_path, class:"btn btn-default btn-priority" %>
+        <button class="btn btn-primary btn-priority" onclick="window.print()">Print report</button>
+      </div>
     </div>
-  </div>
-  <hr id="containinho">
-</div>
-
-<div class="container">
-  <div class="col-md-4 col-md-offset-4">
-   <%= link_to "Return home", root_path, class:"btn btn-default btn-priority" %>
-   <button class="btn btn-primary btn-priority" onclick="window.print()">Print report</button>
   </div>
 </div>
