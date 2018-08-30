@@ -1,4 +1,3 @@
-
 #priority-container {
   margin-top: 80px;
   display: center;
@@ -16,5 +15,16 @@
 
 .btn-priority {
   margin-bottom: 50px;
+}
+
+@media print {
+  .footer, .btn {
+    display: none;
+  }
+
+  a[href]:after {
+    content: none !important;
+  }
+
 }
 
