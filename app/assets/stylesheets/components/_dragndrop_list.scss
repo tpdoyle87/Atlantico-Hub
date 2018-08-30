@@ -34,6 +34,11 @@
   fill: #12cccc;
   position: absolute;
   left: 50%;
+  &.drag-icon {
+    left: 2%;
+    height: 20px;
+    top: 13px;
+  }
 }
 
 .list-group {
