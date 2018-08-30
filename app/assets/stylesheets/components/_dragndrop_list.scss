@@ -106,14 +106,19 @@
   .money-info
    {
     padding: 15px;
+    margin-top: 0;
    }
-   .margin-call-box span
+   .margin-call-box
    {
-    display: block;
+    display: block !important;
     text-align: center;
+    span p {
+      margin-bottom: 0px;
+    }
 
    }
    .mobile-bold {
+      margin-top: 0;
       font-weight: bold;
     }
     .mobile-hide {
