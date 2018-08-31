@@ -1,5 +1,9 @@
 #modal-2 {
 
+  #button-close {
+    padding: 10px;
+    color: white;
+  }
   .landing-banner-modal {
     border-bottom: none;
     // padding: 15px 15px 0 15px;
@@ -13,13 +17,13 @@
     background-repeat: no-repeat;
 
     .close {
-      background: none;
+      // background: none;
       color: white;
       border: none;
       float: right;
       font-size: 40px;
       line-height: 20px;
-      padding: 0;
+      padding: 10px;
 
     &:hover {
         color: white;
